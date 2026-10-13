@@ -1,0 +1,25 @@
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Archivos temporales
+*.log
+*.tmp
+*.temp
+
+# Node modules (si decides agregar build tools después)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Archivos de backup
+*.bak
+*.backup
+*~.nib
