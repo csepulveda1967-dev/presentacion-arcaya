@@ -1,0 +1,1855 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recaudación Digital en Ruta · Arcaya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #028090;
+  --primary-dark: #014f59;
+  --secondary: #14795A;
+  --accent: #F2A93B;
+  --dark: #14213D;
+  --light: #FFFFFF;
+  --gray: #5B6779;
+  --bg-light: #F5F7FA;
+  --success: #14795A;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--dark);
+  color: var(--dark);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  position: relative;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, #14213D 0%, #028090 100%);
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: rgba(2, 128, 144, 0.1);
+  border-radius: 50%;
+  top: -250px;
+  right: -100px;
+  animation: float 8s ease-in-out infinite;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: rgba(20, 121, 90, 0.1);
+  border-radius: 50%;
+  bottom: -150px;
+  left: -50px;
+  animation: float 6s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-30px) rotate(5deg); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.logo {
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 2rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #fff 0%, #00A896 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-weight: 300;
+  margin-bottom: 3rem;
+  color: rgba(255,255,255,0.9);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 1.2rem 3rem;
+  background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: 0 10px 30px rgba(2, 128, 144, 0.4);
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(2, 128, 144, 0.6);
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(10px); }
+}
+
+/* DEMO ANIMADA */
+.demo {
+  background: linear-gradient(135deg, #0a0f1a 0%, #14213D 100%);
+  color: white;
+  padding: 5rem 2rem;
+}
+
+.demo-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.demo-title {
+  text-align: center;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.demo-subtitle {
+  text-align: center;
+  font-size: 1.3rem;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 3rem;
+  font-weight: 300;
+}
+
+.demo-play-button {
+  display: block;
+  margin: 0 auto 3rem;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(135deg, var(--accent) 0%, #e89920 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(242, 169, 59, 0.4);
+  transition: all 0.3s ease;
+}
+
+.demo-play-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(242, 169, 59, 0.6);
+}
+
+.demo-stages {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.demo-stage {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  opacity: 0.3;
+  transition: all 0.5s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.demo-stage.active {
+  opacity: 1;
+  background: rgba(2, 128, 144, 0.15);
+  border-color: var(--primary);
+  transform: scale(1.05);
+}
+
+.demo-stage.active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+  animation: progressBar 3s ease-in-out;
+}
+
+@keyframes progressBar {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.stage-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.stage-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.stage-desc {
+  color: rgba(255,255,255,0.7);
+  line-height: 1.6;
+}
+
+/* MOCKUP DEL SISTEMA */
+.demo-mockup {
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.mockup-phone {
+  background: #14213D;
+  border-radius: 40px;
+  padding: 20px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+  border: 8px solid #2a3a5a;
+  max-width: 400px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.mockup-phone.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.phone-screen {
+  background: white;
+  border-radius: 30px;
+  overflow: hidden;
+  position: relative;
+}
+
+.phone-header {
+  background: var(--dark);
+  color: white;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.phone-header h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.phone-content {
+  padding: 1.5rem;
+  min-height: 400px;
+}
+
+.form-field {
+  margin-bottom: 1.2rem;
+}
+
+.form-field label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--dark);
+  margin-bottom: 0.5rem;
+}
+
+.form-field input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+.form-field input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.phone-button {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+  color: white;
+  border: none;
+  border-radius: 15px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.phone-button:hover {
+  transform: scale(0.98);
+}
+
+.success-message {
+  background: #DDF3EA;
+  color: var(--secondary);
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 600;
+  margin-top: 1rem;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.3s ease;
+}
+
+.success-message.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.mockup-desktop {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease 0.3s;
+}
+
+.mockup-desktop.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.desktop-header {
+  background: var(--dark);
+  color: white;
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.desktop-header h4 {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.live-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255,255,255,0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  background: #4FD1A1;
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+.desktop-content {
+  padding: 1.5rem;
+  background: #f8f9fa;
+  min-height: 350px;
+}
+
+.payment-card {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all 0.4s ease;
+}
+
+.payment-card.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.payment-icon {
+  width: 40px;
+  height: 40px;
+  background: #DDF3EA;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.payment-info {
+  flex: 1;
+}
+
+.payment-info strong {
+  display: block;
+  font-size: 1rem;
+  color: var(--dark);
+  margin-bottom: 0.2rem;
+}
+
+.payment-info small {
+  color: var(--gray);
+  font-size: 0.85rem;
+}
+
+.payment-amount {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--secondary);
+}
+
+/* PROBLEMA */
+.problema {
+  background: white;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--dark);
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.3rem;
+  color: var(--gray);
+  margin-bottom: 4rem;
+  font-weight: 300;
+}
+
+.problema-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.problema-card {
+  background: var(--bg-light);
+  padding: 2.5rem;
+  border-radius: 20px;
+  border-left: 5px solid #C23B3B;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.problema-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.problema-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.problema-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.problema-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--dark);
+}
+
+.problema-card p {
+  color: var(--gray);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* FLUJO VISUAL */
+.flujo {
+  background: linear-gradient(135deg, #F5F7FA 0%, #E9EDF1 100%);
+}
+
+.flujo-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.flujo-step {
+  flex: 1;
+  min-width: 250px;
+  text-align: center;
+  padding: 2rem;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: all 0.4s ease;
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.flujo-step.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.flujo-step:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(2, 128, 144, 0.15);
+}
+
+.flujo-number {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 10px 25px rgba(2, 128, 144, 0.3);
+}
+
+.flujo-emoji {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.flujo-step h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--dark);
+  font-weight: 700;
+}
+
+.flujo-step p {
+  color: var(--gray);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.flujo-arrow {
+  font-size: 3rem;
+  color: var(--primary);
+  opacity: 0.3;
+  align-self: center;
+}
+
+/* CARACTERÍSTICAS - CARRUSEL */
+.caracteristicas {
+  background: white;
+  padding: 5rem 2rem;
+}
+
+.carousel-container {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 30px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  padding: 4rem 3rem;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  text-align: center;
+}
+
+.carousel-icon {
+  font-size: 5rem;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2));
+}
+
+.carousel-slide h3 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 800;
+}
+
+.carousel-slide p {
+  font-size: 1.3rem;
+  line-height: 1.7;
+  opacity: 0.95;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.carousel-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.carousel-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.carousel-dot.active {
+  background: white;
+  width: 40px;
+  border-radius: 6px;
+}
+
+.carousel-arrows {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.carousel-arrow {
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  border: none;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  pointer-events: all;
+}
+
+.carousel-arrow:hover {
+  background: rgba(255,255,255,0.3);
+  transform: scale(1.1);
+}
+
+/* IMPACTO - NÚMEROS */
+.impacto {
+  background: linear-gradient(135deg, #14213D 0%, #028090 100%);
+  color: white;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+  margin-top: 4rem;
+}
+
+.stat-card {
+  text-align: center;
+  padding: 2.5rem;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: all 0.4s ease;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.stat-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stat-card:hover {
+  background: rgba(255,255,255,0.15);
+  transform: translateY(-10px);
+}
+
+.stat-number {
+  font-size: 4.5rem;
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, #fff 0%, #00A896 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  font-weight: 300;
+}
+
+.stat-detail {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  opacity: 0.7;
+  font-style: italic;
+}
+
+/* AHORRO TIEMPO */
+.ahorro {
+  background: white;
+}
+
+.comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 4rem;
+}
+
+.comparison-card {
+  padding: 3rem;
+  border-radius: 25px;
+  position: relative;
+  overflow: hidden;
+}
+
+.comparison-card.antes {
+  background: linear-gradient(135deg, #FFF5F5 0%, #FFE5E5 100%);
+  border: 3px solid #C23B3B;
+}
+
+.comparison-card.despues {
+  background: linear-gradient(135deg, #DDF3EA 0%, #C8EFE0 100%);
+  border: 3px solid var(--secondary);
+}
+
+.comparison-label {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  opacity: 0.7;
+}
+
+.comparison-title {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+}
+
+.time-display {
+  font-size: 5rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  line-height: 1;
+}
+
+.comparison-card.antes .time-display {
+  color: #C23B3B;
+}
+
+.comparison-card.despues .time-display {
+  color: var(--secondary);
+}
+
+.comparison-desc {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--gray);
+}
+
+.savings-highlight {
+  margin-top: 3rem;
+  padding: 2.5rem;
+  background: linear-gradient(135deg, var(--accent) 0%, #E89920 100%);
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 15px 40px rgba(242, 169, 59, 0.3);
+}
+
+.savings-highlight h3 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+}
+
+.savings-number {
+  font-size: 6rem;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.savings-detail {
+  font-size: 1.3rem;
+  opacity: 0.95;
+}
+
+/* IMPLEMENTACIÓN */
+.implementacion {
+  background: var(--bg-light);
+}
+
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 4rem auto 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--primary) 0%, var(--secondary) 100%);
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4rem;
+  opacity: 0;
+  transform: translateX(-50px);
+}
+
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.timeline-item:nth-child(even) {
+  flex-direction: row-reverse;
+  transform: translateX(50px);
+}
+
+.timeline-item:nth-child(even).visible {
+  transform: translateX(0);
+}
+
+.timeline-content {
+  flex: 1;
+  padding: 2rem 3rem;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  margin: 0 2rem;
+}
+
+.timeline-number {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: 900;
+  box-shadow: 0 5px 15px rgba(2, 128, 144, 0.4);
+  z-index: 2;
+  position: relative;
+}
+
+.timeline-content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: var(--dark);
+}
+
+.timeline-duration {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  background: var(--accent);
+  color: white;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.timeline-content p {
+  color: var(--gray);
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
+/* CTA FINAL */
+.cta-final {
+  background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+  color: white;
+  text-align: center;
+}
+
+.cta-final h2 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 1.5rem;
+  font-weight: 900;
+}
+
+.cta-final p {
+  font-size: 1.5rem;
+  margin-bottom: 3rem;
+  opacity: 0.95;
+  font-weight: 300;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-button.secondary {
+  background: white;
+  color: var(--primary);
+  box-shadow: 0 10px 30px rgba(255,255,255,0.2);
+}
+
+.cta-button.secondary:hover {
+  background: var(--bg-light);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .demo-mockup {
+    grid-template-columns: 1fr;
+  }
+
+  .demo-stages {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 3rem 1.5rem;
+  }
+
+  .comparison {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .timeline::before {
+    left: 30px;
+  }
+
+  .timeline-item,
+  .timeline-item:nth-child(even) {
+    flex-direction: row;
+  }
+
+  .timeline-content {
+    margin-left: 2rem;
+  }
+
+  .flujo-arrow {
+    display: none;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+  }
+}
+
+/* SCROLL ANIMATIONS */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="section hero">
+  <div class="container hero-content">
+    <div class="logo">Propuesta para Arcaya</div>
+    <h1>Recaudación Digital<br>en Ruta</h1>
+    <p class="subtitle">Del pago en el camión al cuadre en la oficina, sin esperar al final del día</p>
+    <button class="cta-button" onclick="document.querySelector('.demo').scrollIntoView({behavior:'smooth'})">Ver demo en vivo ↓</button>
+  </div>
+  <div class="scroll-indicator">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 5v14M19 12l-7 7-7-7"/>
+    </svg>
+  </div>
+</section>
+
+<!-- DEMO ANIMADA -->
+<section class="demo">
+  <div class="demo-container">
+    <h2 class="demo-title">Ve el sistema en acción</h2>
+    <p class="demo-subtitle">Una simulación del flujo completo en tiempo real</p>
+
+    <button class="demo-play-button" id="playDemo">▶ Reproducir demo</button>
+
+    <div class="demo-stages">
+      <div class="demo-stage" id="stage1">
+        <span class="stage-icon">🚛</span>
+        <h3 class="stage-title">Chofer registra</h3>
+        <p class="stage-desc">El chofer cobra y registra el pago desde su celular</p>
+      </div>
+      <div class="demo-stage" id="stage2">
+        <span class="stage-icon">☁️</span>
+        <h3 class="stage-title">Sube a la nube</h3>
+        <p class="stage-desc">Los datos se sincronizan automáticamente</p>
+      </div>
+      <div class="demo-stage" id="stage3">
+        <span class="stage-icon">💼</span>
+        <h3 class="stage-title">Oficina supervisa</h3>
+        <p class="stage-desc">Aparece instantáneamente en el panel</p>
+      </div>
+    </div>
+
+    <div class="demo-mockup">
+      <!-- Mockup Celular -->
+      <div class="mockup-phone" id="mockupPhone">
+        <div class="phone-screen">
+          <div class="phone-header">
+            <h4>🚛 App Chofer</h4>
+          </div>
+          <div class="phone-content">
+            <div class="form-field">
+              <label>N° de factura</label>
+              <input type="text" id="demoFactura" value="" placeholder="Ej: 48213">
+            </div>
+            <div class="form-field">
+              <label>Monto</label>
+              <input type="text" id="demoMonto" value="" placeholder="$0">
+            </div>
+            <div class="form-field">
+              <label>Titular</label>
+              <input type="text" id="demoTitular" value="" placeholder="Nombre del titular">
+            </div>
+            <button class="phone-button" id="demoSubmit">Enviar pago</button>
+            <div class="success-message" id="demoSuccess">
+              ✓ Pago enviado exitosamente
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mockup Desktop -->
+      <div class="mockup-desktop" id="mockupDesktop">
+        <div class="desktop-header">
+          <h4>💼 Panel Oficina</h4>
+          <div class="live-badge">
+            <span class="live-dot"></span>
+            En vivo
+          </div>
+        </div>
+        <div class="desktop-content" id="desktopPayments">
+          <p style="text-align:center; color: var(--gray); padding: 2rem;">
+            Los pagos aparecerán aquí en tiempo real...
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMA ACTUAL -->
+<section class="section problema">
+  <div class="container">
+    <h2 class="section-title">Hoy, el cuadre ocurre al final del día</h2>
+    <p class="section-subtitle">Y trae estos desafíos operacionales</p>
+
+    <div class="problema-grid">
+      <div class="problema-card fade-in">
+        <div class="problema-icon">📋</div>
+        <h3>~1.000 facturas diarias</h3>
+        <p>Alrededor de 100 facturas por chofer cada día que deben ser registradas y conciliadas manualmente.</p>
+      </div>
+
+      <div class="problema-card fade-in" style="transition-delay: 0.1s">
+        <div class="problema-icon">💳</div>
+        <h3>80% por transferencia</h3>
+        <p>La mayoría de los pagos llegan por transferencia bancaria, requiriendo validación del titular.</p>
+      </div>
+
+      <div class="problema-card fade-in" style="transition-delay: 0.2s">
+        <div class="problema-icon">❓</div>
+        <h3>Titular no coincide</h3>
+        <p>El nombre del titular de la cuenta casi nunca coincide con el cliente de la factura, generando confusión.</p>
+      </div>
+
+      <div class="problema-card fade-in" style="transition-delay: 0.3s">
+        <div class="problema-icon">⏰</div>
+        <h3>Cuadre al final del día</h3>
+        <p>Todo el trabajo de conciliación se acumula para el cierre, cuando la información ya no está fresca.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLUJO VISUAL -->
+<section class="section flujo">
+  <div class="container">
+    <h2 class="section-title">Cada pago se registra en el momento</h2>
+    <p class="section-subtitle">Flujo simple y automático</p>
+
+    <div class="flujo-container">
+      <div class="flujo-step fade-in">
+        <div class="flujo-number">1</div>
+        <div class="flujo-emoji">🚛</div>
+        <h3>Chofer cobra</h3>
+        <p>Registra factura, monto, titular y medio de pago desde su celular</p>
+      </div>
+
+      <div class="flujo-arrow">→</div>
+
+      <div class="flujo-step fade-in" style="transition-delay: 0.2s">
+        <div class="flujo-number">2</div>
+        <div class="flujo-emoji">☁️</div>
+        <h3>Nube guarda</h3>
+        <p>El dato queda guardado al instante y sin papeles. Funciona incluso sin señal</p>
+      </div>
+
+      <div class="flujo-arrow">→</div>
+
+      <div class="flujo-step fade-in" style="transition-delay: 0.4s">
+        <div class="flujo-number">3</div>
+        <div class="flujo-emoji">💼</div>
+        <h3>Oficina supervisa</h3>
+        <p>Ve los pagos en vivo, filtra y exporta a Excel para conciliación</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CARACTERÍSTICAS - CARRUSEL -->
+<section class="section caracteristicas">
+  <div class="container">
+    <h2 class="section-title">Pensada para funcionar en el día a día</h2>
+    <p class="section-subtitle">Características diseñadas para la operación real</p>
+
+    <div class="carousel-container">
+      <div class="carousel-track" id="carouselTrack">
+        <div class="carousel-slide">
+          <div class="carousel-icon">📱</div>
+          <h3>Botones grandes</h3>
+          <p>Cuatro datos y un solo botón para enviar. Diseñada para usarse rápido en el camión, incluso con guantes.</p>
+        </div>
+
+        <div class="carousel-slide">
+          <div class="carousel-icon">📶</div>
+          <h3>Funciona sin señal</h3>
+          <p>Guarda el pago localmente y lo envía automáticamente cuando vuelve la cobertura. Cero pagos perdidos.</p>
+        </div>
+
+        <div class="carousel-slide">
+          <div class="carousel-icon">✨</div>
+          <h3>Se instala con un toque</h3>
+          <p>Ícono en el teléfono sin necesidad de tienda de aplicaciones. Un toque y queda instalada.</p>
+        </div>
+
+        <div class="carousel-slide">
+          <div class="carousel-icon">🔔</div>
+          <h3>Evita errores</h3>
+          <p>Avisa si la factura ya fue registrada y permite abonos parciales cuando un cliente paga en cuotas.</p>
+        </div>
+
+        <div class="carousel-slide">
+          <div class="carousel-icon">⚡</div>
+          <h3>Tiempo real</h3>
+          <p>Los pagos aparecen en la oficina al instante. Control total de la recaudación durante todo el día.</p>
+        </div>
+
+        <div class="carousel-slide">
+          <div class="carousel-icon">📊</div>
+          <h3>Excel en un clic</h3>
+          <p>Descarga toda la información lista para conciliar contra las facturas emitidas. Sin copiar y pegar.</p>
+        </div>
+      </div>
+
+      <div class="carousel-arrows">
+        <button class="carousel-arrow" onclick="moveCarousel(-1)">‹</button>
+        <button class="carousel-arrow" onclick="moveCarousel(1)">›</button>
+      </div>
+    </div>
+
+    <div class="carousel-nav" id="carouselNav"></div>
+  </div>
+</section>
+<!-- SECCIÓN INSERTABLE: Panel de Oficina - Funcionalidades Clave -->
+<!-- Agregar después de la sección de Carrusel (características) -->
+
+<section class="section panel-oficina">
+  <div class="container">
+    <h2 class="section-title">Control total para finanzas</h2>
+    <p class="section-subtitle">Dos funcionalidades que marcan la diferencia</p>
+
+    <div class="panel-grid">
+      <!-- Excel Export -->
+      <div class="panel-feature fade-in">
+        <div class="feature-visual">
+          <div class="excel-demo">
+            <div class="excel-icon">📊</div>
+            <div class="excel-button-demo">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 4v11M7 11l5 5 5-5M5 20h14"/>
+              </svg>
+              Exportar a Excel
+            </div>
+          </div>
+        </div>
+        <div class="feature-content">
+          <h3>📥 Exportación a Excel en un clic</h3>
+          <p>Descarga toda la información del día lista para conciliar:</p>
+          <ul class="feature-list">
+            <li>✓ Fecha, hora, chofer, factura</li>
+            <li>✓ Monto, medio de pago, titular</li>
+            <li>✓ Estado (recibido/por revisar)</li>
+            <li>✓ Filtros aplicados se mantienen</li>
+          </ul>
+          <div class="feature-highlight">
+            Sin copiar y pegar. Todo listo para abrir en Excel.
+          </div>
+        </div>
+      </div>
+
+      <!-- Cierre de Caja -->
+      <div class="panel-feature fade-in" style="transition-delay: 0.2s">
+        <div class="feature-visual">
+          <div class="cierre-demo">
+            <div class="cierre-header">
+              <span class="cierre-icon">💰</span>
+              <h4>Cierre del día · efectivo</h4>
+            </div>
+            <div class="cierre-table">
+              <div class="cierre-row cierre-header-row">
+                <div>Chofer</div>
+                <div>Registrado</div>
+                <div>Entregado</div>
+                <div>Estado</div>
+              </div>
+              <div class="cierre-row">
+                <div><strong>Juan Pérez</strong></div>
+                <div class="cierre-amount">$89.500</div>
+                <div class="cierre-input">$89.500</div>
+                <div><span class="badge-cuadra">✓ Cuadra</span></div>
+              </div>
+              <div class="cierre-row">
+                <div><strong>María Silva</strong></div>
+                <div class="cierre-amount">$125.000</div>
+                <div class="cierre-input">$122.000</div>
+                <div><span class="badge-faltan">⚠ Faltan $3.000</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="feature-content">
+          <h3>💰 Cierre de caja por chofer</h3>
+          <p>Al final del día, cuadra el efectivo automáticamente:</p>
+          <ul class="feature-list">
+            <li>✓ Ve lo que cada chofer registró en la app</li>
+            <li>✓ Ingresas el efectivo físicamente entregado</li>
+            <li>✓ El sistema compara y te dice el resultado</li>
+            <li>✓ Detecta si cuadra, falta o sobra al instante</li>
+          </ul>
+          <div class="feature-highlight">
+            Solo con efectivo. Las transferencias ya están en el banco.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Panel de Oficina - Funcionalidades */
+.panel-oficina {
+  background: linear-gradient(135deg, #F5F7FA 0%, #E9EDF1 100%);
+}
+
+.panel-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-top: 4rem;
+}
+
+.panel-feature {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  background: white;
+  border-radius: 25px;
+  padding: 3rem;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+  align-items: center;
+}
+
+.feature-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.excel-demo {
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.excel-icon {
+  font-size: 5rem;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2));
+}
+
+.excel-button-demo {
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255,255,255,0.3);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 15px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  animation: pulseButton 2s ease-in-out infinite;
+}
+
+@keyframes pulseButton {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.cierre-demo {
+  background: white;
+  border: 2px solid var(--line);
+  border-radius: 15px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.cierre-header {
+  background: var(--dark);
+  color: white;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.cierre-icon {
+  font-size: 1.8rem;
+}
+
+.cierre-header h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.cierre-table {
+  padding: 1rem;
+}
+
+.cierre-row {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr 1.2fr 1.5fr;
+  gap: 0.8rem;
+  align-items: center;
+  padding: 0.8rem;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.9rem;
+}
+
+.cierre-row:last-child {
+  border-bottom: none;
+}
+
+.cierre-header-row {
+  font-weight: 600;
+  color: var(--gray);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cierre-amount {
+  font-weight: 700;
+  color: var(--dark);
+  font-variant-numeric: tabular-nums;
+}
+
+.cierre-input {
+  background: var(--bg-light);
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  font-weight: 700;
+  text-align: right;
+  color: var(--dark);
+  font-variant-numeric: tabular-nums;
+}
+
+.badge-cuadra {
+  display: inline-block;
+  background: #DDF3EA;
+  color: var(--secondary);
+  padding: 0.4rem 0.8rem;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.badge-faltan {
+  display: inline-block;
+  background: #FCEBCB;
+  color: #8A5A00;
+  padding: 0.4rem 0.8rem;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.feature-content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--dark);
+  font-weight: 800;
+}
+
+.feature-content p {
+  font-size: 1.1rem;
+  color: var(--gray);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+.feature-list li {
+  padding: 0.6rem 0;
+  font-size: 1rem;
+  color: var(--dark);
+  line-height: 1.6;
+}
+
+.feature-highlight {
+  background: linear-gradient(135deg, var(--accent) 0%, #e89920 100%);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+@media (max-width: 1024px) {
+  .panel-feature {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .excel-demo,
+  .cierre-demo {
+    max-width: 100%;
+  }
+}
+</style>
+<!-- IMPACTO - NÚMEROS -->
+<section class="section impacto">
+  <div class="container">
+    <h2 class="section-title">Impacto en tu operación</h2>
+    <p class="section-subtitle">Datos estimados basados en la operación actual de Arcaya</p>
+
+    <div class="stats-grid">
+      <div class="stat-card fade-in">
+        <div class="stat-number">1.000</div>
+        <div class="stat-label">Facturas al día</div>
+        <div class="stat-detail">~100 por chofer, todas registradas digitalmente</div>
+      </div>
+
+      <div class="stat-card fade-in" style="transition-delay: 0.1s">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Trazabilidad</div>
+        <div class="stat-detail">Cada pago con fecha, hora y chofer asignado</div>
+      </div>
+
+      <div class="stat-card fade-in" style="transition-delay: 0.2s">
+        <div class="stat-number">0</div>
+        <div class="stat-label">Pagos perdidos</div>
+        <div class="stat-detail">Funciona sin señal, los guarda y envía después</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AHORRO DE TIEMPO -->
+<section class="section ahorro">
+  <div class="container">
+    <h2 class="section-title">Tiempo ahorrado cada día</h2>
+    <p class="section-subtitle">Basado en conciliación de pagos por transferencia</p>
+
+    <div class="comparison">
+      <div class="comparison-card antes fade-in">
+        <div class="comparison-label">❌ Antes</div>
+        <h3 class="comparison-title">Cuadre manual al final del día</h3>
+        <div class="time-display">5.3h</div>
+        <p class="comparison-desc">Buscar cada transferencia, validar titulares, cruzar con facturas. Aproximadamente 2 minutos por cada uno de los ~160 pagos diarios por transferencia.</p>
+      </div>
+
+      <div class="comparison-card despues fade-in" style="transition-delay: 0.2s">
+        <div class="comparison-label">✅ Con la app</div>
+        <h3 class="comparison-title">Registro en el momento</h3>
+        <div class="time-display">1.3h</div>
+        <p class="comparison-desc">El chofer ya registró titular y monto. Finanzas solo valida y marca como revisado. Aproximadamente 30 segundos por pago.</p>
+      </div>
+    </div>
+
+    <div class="savings-highlight fade-in" style="transition-delay: 0.4s">
+      <h3>Ahorro diario</h3>
+      <div class="savings-number">4 horas</div>
+      <p class="savings-detail">~88 horas al mes liberadas para el equipo de finanzas</p>
+    </div>
+  </div>
+</section>
+
+<!-- IMPLEMENTACIÓN -->
+<section class="section implementacion">
+  <div class="container">
+    <h2 class="section-title">Implementación y soporte</h2>
+    <p class="section-subtitle">Plan de 3 meses para autonomía total</p>
+
+    <div class="timeline">
+      <div class="timeline-item fade-in">
+        <div class="timeline-number">1</div>
+        <div class="timeline-content">
+          <h3>Mes 1 · Piloto operativo</h3>
+          <span class="timeline-duration">4 semanas</span>
+          <p>Grupo reducido de choferes. Creamos usuarios, resolvemos fallas y armamos el manual con los problemas reales que aparezcan.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-in" style="transition-delay: 0.1s">
+        <div class="timeline-number">2</div>
+        <div class="timeline-content">
+          <h3>Mes 2 · Trabajo conjunto</h3>
+          <span class="timeline-duration">4 semanas</span>
+          <p>El encargado de Arcaya atiende primero con respaldo técnico nuestro. Medimos tiempo de conciliación antes y después.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-in" style="transition-delay: 0.2s">
+        <div class="timeline-number">3</div>
+        <div class="timeline-content">
+          <h3>Mes 3 · Autonomía total</h3>
+          <span class="timeline-duration">4 semanas</span>
+          <p>El encargado lidera completamente. Evaluamos el traspaso y definimos soporte posterior. Integración con SAP si corresponde.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="section cta-final">
+  <div class="container">
+    <h2>¿Listo para probarlo?</h2>
+    <p>Empecemos con un piloto de 4 semanas</p>
+    <div class="cta-buttons">
+      <button class="cta-button">📅 Agendar demostración</button>
+      <button class="cta-button secondary">📧 Enviar consulta</button>
+    </div>
+  </div>
+</section>
+
+<script>
+// Intersection Observer para animaciones
+const observerOptions = {
+  threshold: 0.2,
+  rootMargin: '0px 0px -100px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+document.querySelectorAll('.problema-card').forEach(el => observer.observe(el));
+document.querySelectorAll('.flujo-step').forEach(el => observer.observe(el));
+document.querySelectorAll('.stat-card').forEach(el => observer.observe(el));
+document.querySelectorAll('.timeline-item').forEach(el => observer.observe(el));
+
+// Carrusel
+let currentSlide = 0;
+const track = document.getElementById('carouselTrack');
+const slides = track.querySelectorAll('.carousel-slide');
+const navContainer = document.getElementById('carouselNav');
+
+// Crear dots de navegación
+slides.forEach((_, index) => {
+  const dot = document.createElement('div');
+  dot.className = 'carousel-dot';
+  if (index === 0) dot.classList.add('active');
+  dot.addEventListener('click', () => goToSlide(index));
+  navContainer.appendChild(dot);
+});
+
+function updateCarousel() {
+  track.style.transform = `translateX(-${currentSlide * 100}%)`;
+  document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
+    dot.classList.toggle('active', index === currentSlide);
+  });
+}
+
+function moveCarousel(direction) {
+  currentSlide += direction;
+  if (currentSlide < 0) currentSlide = slides.length - 1;
+  if (currentSlide >= slides.length) currentSlide = 0;
+  updateCarousel();
+}
+
+function goToSlide(index) {
+  currentSlide = index;
+  updateCarousel();
+}
+
+// Auto-avance del carrusel cada 5 segundos
+setInterval(() => {
+  moveCarousel(1);
+}, 3000);
+
+// DEMO ANIMADA
+let demoRunning = false;
+
+document.getElementById('playDemo').addEventListener('click', async function() {
+  if (demoRunning) return;
+  demoRunning = true;
+
+  this.textContent = '⏸ Demo en progreso...';
+  this.disabled = true;
+
+  // Reset
+  document.getElementById('demoFactura').value = '';
+  document.getElementById('demoMonto').value = '';
+  document.getElementById('demoTitular').value = '';
+  document.getElementById('demoSuccess').classList.remove('show');
+  document.getElementById('desktopPayments').innerHTML = '<p style="text-align:center; color: var(--gray); padding: 2rem;">Los pagos aparecerán aquí en tiempo real...</p>';
+
+  document.querySelectorAll('.demo-stage').forEach(s => s.classList.remove('active'));
+  document.getElementById('mockupPhone').classList.remove('visible');
+  document.getElementById('mockupDesktop').classList.remove('visible');
+
+  await sleep(300);
+
+  // Stage 1: Chofer registra
+  document.getElementById('stage1').classList.add('active');
+  document.getElementById('mockupPhone').classList.add('visible');
+
+  await sleep(800);
+  await typeText('demoFactura', '48213');
+  await sleep(500);
+  await typeText('demoMonto', '$125.000');
+  await sleep(500);
+  await typeText('demoTitular', 'María González S.');
+  await sleep(800);
+
+  // Simular click en enviar
+  document.getElementById('demoSubmit').style.transform = 'scale(0.95)';
+  await sleep(150);
+  document.getElementById('demoSubmit').style.transform = 'scale(1)';
+  document.getElementById('demoSuccess').classList.add('show');
+
+  await sleep(1000);
+
+  // Stage 2: Sube a la nube
+  document.getElementById('stage1').classList.remove('active');
+  document.getElementById('stage2').classList.add('active');
+
+  await sleep(1500);
+
+  // Stage 3: Aparece en oficina
+  document.getElementById('stage2').classList.remove('active');
+  document.getElementById('stage3').classList.add('active');
+  document.getElementById('mockupDesktop').classList.add('visible');
+
+  await sleep(500);
+
+  // Agregar pago al panel
+  document.getElementById('desktopPayments').innerHTML = '';
+  addPaymentToPanel('48213', 'María González S.', '$125.000', 'Transferencia');
+
+  await sleep(2000);
+
+  // Agregar más pagos de ejemplo
+  addPaymentToPanel('48214', 'Juan Pérez C.', '$89.500', 'Efectivo');
+  await sleep(1200);
+  addPaymentToPanel('48215', 'Ana Martínez L.', '$156.000', 'Transferencia');
+
+  await sleep(2000);
+
+  // Reset para poder volver a reproducir
+  document.getElementById('stage3').classList.remove('active');
+  this.textContent = '🔄 Reproducir de nuevo';
+  this.disabled = false;
+  demoRunning = false;
+});
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function typeText(id, text) {
+  const input = document.getElementById(id);
+  input.value = '';
+  for (let char of text) {
+    input.value += char;
+    await sleep(80);
+  }
+}
+
+function addPaymentToPanel(factura, titular, monto, medio) {
+  const container = document.getElementById('desktopPayments');
+  const card = document.createElement('div');
+  card.className = 'payment-card';
+  card.innerHTML = `
+    <div class="payment-icon">✓</div>
+    <div class="payment-info">
+      <strong>Factura ${factura}</strong>
+      <small>${medio} · ${titular} · ${new Date().toLocaleTimeString('es-CL', {hour: '2-digit', minute: '2-digit'})}</small>
+    </div>
+    <div class="payment-amount">${monto}</div>
+  `;
+  container.insertBefore(card, container.firstChild);
+
+  setTimeout(() => card.classList.add('show'), 50);
+}
+
+// Prevenir zoom en doble tap en móviles
+let lastTouchEnd = 0;
+document.addEventListener('touchend', (event) => {
+  const now = Date.now();
+  if (now - lastTouchEnd <= 300) {
+    event.preventDefault();
+  }
+  lastTouchEnd = now;
+}, false);
+</script>
+
+</body>
+</html>
